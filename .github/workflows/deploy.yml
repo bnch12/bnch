@@ -1,13 +1,12 @@
-name: Deploy blog CMS
+name: Deploy new blog CMS
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
   workflow_dispatch:
 
 concurrency:
-  group: blog-production
+  group: new-blog-production
   cancel-in-progress: true
 
 jobs:
@@ -21,6 +20,9 @@ jobs:
       CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
       ADMIN_PASSWORD: ${{ secrets.ADMIN_PASSWORD }}
       ADMIN_SESSION_SECRET: ${{ secrets.ADMIN_SESSION_SECRET }}
+      D1_DATABASE_NAME: banglachoti24-new-blog
+      R2_BUCKET_NAME: banglachoti24-new-blog-media
+      SITE_URL: https://new.banglachoti24.com
 
     steps:
       - name: Checkout
@@ -35,8 +37,17 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Ensure D1 and R2 resources exist and configure bindings
+        run: node scripts/ensure-cloudflare-resources.mjs
+
       - name: Apply D1 migrations
-        run: npx wrangler d1 migrations apply suhanur-blog --remote
+        run: npx wrangler d1 migrations apply banglachoti24-new-blog --remote
+
+      - name: Set production secrets
+        shell: bash
+        run: |
+          printf '%s' "$ADMIN_PASSWORD" | npx wrangler secret put ADMIN_PASSWORD
+          printf '%s' "$ADMIN_SESSION_SECRET" | npx wrangler secret put ADMIN_SESSION_SECRET
 
       - name: Build and deploy vinext app
         run: npx @vinext/cloudflare deploy
