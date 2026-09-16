@@ -1,4 +1,4 @@
-name = "suhanur-rahman-blog"
+name = "banglachoti24-new-blog"
 main = "worker/index.ts"
 compatibility_date = "2026-09-12"
 compatibility_flags = ["nodejs_compat"]
@@ -10,15 +10,12 @@ enabled = true
 [secrets]
 required = ["ADMIN_PASSWORD", "ADMIN_SESSION_SECRET"]
 
-[[d1_databases]]
-binding = "BLOG_DB"
-database_name = "suhanur-blog"
-database_id = "16d29e6e-9485-47df-bb16-2ea2e2ed5414"
-migrations_dir = "migrations"
-
-[[r2_buckets]]
-binding = "BLOG_MEDIA"
-bucket_name = "suhanur-blog-media"
+# D1 and R2 resource bindings are provisioned by the deployment/setup scripts.
+# Keep production resource IDs out of source control when the repo is first configured.
 
 [vars]
-SITE_URL = "https://blog.suhanurrahman.com"
+SITE_URL = "https://new.banglachoti24.com"
+
+[[routes]]
+pattern = "new.banglachoti24.com"
+custom_domain = true
