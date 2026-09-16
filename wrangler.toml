@@ -1,0 +1,24 @@
+name = "suhanur-rahman-blog"
+main = "worker/index.ts"
+compatibility_date = "2026-09-12"
+compatibility_flags = ["nodejs_compat"]
+keep_vars = true
+
+[cache]
+enabled = true
+
+[secrets]
+required = ["ADMIN_PASSWORD", "ADMIN_SESSION_SECRET"]
+
+[[d1_databases]]
+binding = "BLOG_DB"
+database_name = "suhanur-blog"
+database_id = "16d29e6e-9485-47df-bb16-2ea2e2ed5414"
+migrations_dir = "migrations"
+
+[[r2_buckets]]
+binding = "BLOG_MEDIA"
+bucket_name = "suhanur-blog-media"
+
+[vars]
+SITE_URL = "https://blog.suhanurrahman.com"

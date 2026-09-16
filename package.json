@@ -1,0 +1,42 @@
+{
+  "name": "suhanur-rahman-blog",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "vinext build",
+    "dev:vinext": "vinext dev",
+    "build:vinext": "vinext build",
+    "deploy": "vinext build && vinext-cloudflare deploy",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@ckeditor/ckeditor5-react": "11.2.0",
+    "@vinext/cloudflare": "latest",
+    "ckeditor5": "48.5.0",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.468.0",
+    "marked": "^16.3.0",
+    "next": "^16.3.4",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "react-server-dom-webpack": "19.3.0",
+    "tailwind-merge": "^3.7.0",
+    "vinext": "latest"
+  },
+  "devDependencies": {
+    "@cloudflare/vite-plugin": "latest",
+    "@cloudflare/workers-types": "latest",
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/node": "^22.20.2",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.2.7",
+    "@vitejs/plugin-rsc": "latest",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^5.9.2",
+    "vite": "latest",
+    "wrangler": "latest"
+  }
+}

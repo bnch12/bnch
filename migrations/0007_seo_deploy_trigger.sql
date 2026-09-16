@@ -1,0 +1,2 @@
+-- Trigger deployment so the existing-post SEO migration is applied to production D1.
+-- No application data changes are performed by this migration.

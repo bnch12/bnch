@@ -1,0 +1,107 @@
+/* Tailwind v4 entry for the admin panel — "Modern Minimalist SaaS".
+   Preflight is intentionally NOT imported so the public journal
+   (globals.css / netra-style.css) keeps its own base styles. */
+@layer legacy, theme, base, components, utilities;
+/* Fonts are declared in the document head so the browser can discover them
+   earlier and the build tool does not have to transform CSS @import rules. */
+
+/* Public journal + baseline styles live in a lower layer so Tailwind
+   utilities used in the admin always win generic name collisions
+   (e.g. .grid, .border). Public pages carry no utilities, so they are
+   unaffected. */
+@import './globals.css' layer(legacy);
+@import './netra-style.css' layer(legacy);
+@import './default-light-theme.css' layer(legacy);
+@import 'tailwindcss/theme.css' layer(theme);
+@import 'tailwindcss/utilities.css' layer(utilities);
+
+@layer base {
+  .admin-app,
+  .admin-login {
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  /* Scoped, preflight-style reset for the admin only (public journal keeps
+     its own base styles). Neutralises generic public rules that leak in via
+     shared class names, and restores the border defaults Tailwind's
+     (omitted) preflight would normally provide, so border/divide utilities
+     work. CKEditor styles are unlayered and still win over this. */
+  .admin-app *,
+  .admin-app *::before,
+  .admin-app *::after,
+  .admin-login *,
+  .admin-login *::before,
+  .admin-login *::after {
+    box-sizing: border-box;
+    border-width: 0;
+    border-style: solid;
+    border-color: var(--color-border);
+  }
+  /* Bare `grid` (no grid-cols-*) must not inherit the public 12-column
+     template. Intentional grid-cols-* / gap-* utilities live in the
+     utilities layer and still win over this base rule. */
+  .admin-app .grid,
+  .admin-login .grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+  }
+  /* Reset browser default margins (headings/paragraphs) and list markers
+     that preflight would normally remove — otherwise admin pages get
+     inflated vertical spacing and stray bullets in the nav. The rich-text
+     editor content (.ck-content) sets its own spacing via unlayered
+     CKEditor CSS and is unaffected. */
+  .admin-app :is(h1, h2, h3, h4, h5, h6, p, blockquote, figure, figcaption, dl, dd, pre, fieldset, hr),
+  .admin-login :is(h1, h2, h3, h4, h5, h6, p, blockquote, figure, figcaption, dl, dd, pre, fieldset, hr) {
+    margin: 0;
+  }
+  .admin-app :is(ul, ol),
+  .admin-login :is(ul, ol) {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  /* Native controls inside admin should inherit the SaaS font. */
+  .admin-app button,
+  .admin-app input,
+  .admin-app select,
+  .admin-app textarea,
+  .admin-login button,
+  .admin-login input,
+  .admin-login select,
+  .admin-login textarea {
+    font-family: inherit;
+  }
+}
+
+@theme {
+  --color-background: #f7f8fa;
+  --color-foreground: #0b1220;
+  --color-card: #ffffff;
+  --color-card-foreground: #0b1220;
+  --color-muted: #f3f4f6;
+  --color-muted-foreground: #6b7280;
+  --color-secondary: #f1f3f6;
+  --color-secondary-foreground: #0b1220;
+  --color-accent: #f0fdfa;
+  --color-accent-foreground: #0f766e;
+  --color-primary: #0d9488;
+  --color-primary-foreground: #ffffff;
+  --color-primary-hover: #0f766e;
+  --color-destructive: #e11d48;
+  --color-success: #059669;
+  --color-warning: #d97706;
+  --color-border: #eaecef;
+  --color-input: #dfe3e8;
+  --color-ring: #14b8a6;
+
+  --radius: 0.75rem;
+
+  --shadow-xs: 0 1px 2px 0 rgb(16 24 40 / 0.04);
+  --shadow-sm: 0 1px 2px 0 rgb(16 24 40 / 0.05), 0 1px 3px 0 rgb(16 24 40 / 0.05);
+  --shadow-md: 0 2px 6px -1px rgb(16 24 40 / 0.06), 0 6px 16px -4px rgb(16 24 40 / 0.08);
+  --shadow-lg: 0 12px 32px -8px rgb(16 24 40 / 0.12);
+
+  --font-sans: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto,
+    Helvetica, Arial, 'Noto Serif Bengali', sans-serif;
+}

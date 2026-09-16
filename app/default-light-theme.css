@@ -1,0 +1,16 @@
+/* Keep the public site light by default, regardless of the user's OS theme. */
+html:not([data-theme='dark']) .site-public {
+  --bg: #ffffff;
+  --bg-2: #f6f6f4;
+  --surface: #ffffff;
+  --fg: #16130f;
+  --muted: #62626a;
+  --faint: #9a9aa2;
+  --line: #e7e7e4;
+  --line-2: #efefec;
+  --accent: #e11d2a;
+  --accent-2: #7c3aed;
+  --ring: rgba(225, 29, 42, 0.35);
+  --shadow: 0 10px 30px -12px rgba(20, 20, 30, 0.18);
+  --shadow-lg: 0 24px 60px -24px rgba(20, 20, 30, 0.35);
+}

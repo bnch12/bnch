@@ -1,0 +1,137 @@
+/* CKEditor post-editor chrome — themed to match the "Modern Minimalist SaaS"
+   admin (teal accent, hairline borders, soft shadows, Inter). */
+
+.ck-editor-post-form {
+  --e-primary: #0d9488;
+  --e-primary-hover: #0f766e;
+  --e-ring: rgba(20, 184, 166, 0.35);
+  --e-border: #eaecef;
+  --e-input: #dfe3e8;
+  --e-card: #ffffff;
+  --e-muted: #f3f4f6;
+  --e-text: #0b1220;
+  --e-muted-foreground: #6b7280;
+  width: 100%;
+  background: var(--e-card);
+  border: 1px solid var(--e-border);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 1px 2px rgb(16 24 40 / 0.05), 0 1px 3px rgb(16 24 40 / 0.05);
+  font-family: Inter, ui-sans-serif, system-ui, 'Noto Serif Bengali', sans-serif;
+}
+.ck-editor-post-form--fullscreen { position: fixed; inset: 0; z-index: 3000; border-radius: 0; overflow: hidden; background: #f7f8fa; }
+.ck-editor-post-topbar { display:flex; align-items:center; justify-content:space-between; gap:16px; padding:14px 20px; border-bottom:1px solid var(--e-border); background:var(--e-card); flex:0 0 auto; }
+.ck-editor-post-kicker { margin-bottom:3px; font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--e-primary); }
+.ck-editor-post-status { font-size:12px; color:var(--e-muted-foreground); }
+.ck-editor-post-topbar button { height:36px; border:1px solid var(--e-input); background:var(--e-card); color:var(--e-text); border-radius:8px; padding:0 12px; font-size:13px; font-weight:500; cursor:pointer; transition:background .15s ease; }
+.ck-editor-post-topbar button:hover { background:var(--e-muted); }
+.ck-editor-post-heading { display:grid; grid-template-columns:minmax(0,1fr) minmax(260px,340px); gap:16px; padding:16px 20px 0; background:var(--e-card); flex:0 0 auto; }
+.ck-editor-post-heading label { display:grid; gap:7px; color:var(--e-muted-foreground); font-size:14px; font-weight:600; }
+.ck-editor-post-heading input { width:100%; min-width:0; border:1px solid var(--e-input); border-radius:8px; padding:10px 12px; background:var(--e-card); color:var(--e-text); font-family:inherit; font-size:16px; outline:none; transition:border-color .15s ease,box-shadow .15s ease; }
+.ck-editor-post-heading input:focus { border-color:var(--e-primary); box-shadow:0 0 0 3px var(--e-ring); }
+.ck-editor-post-grid { display:grid; grid-template-columns:minmax(0,1fr) 340px; gap:20px; padding:16px 20px 20px; align-items:stretch; min-height:0; flex:1 1 auto; overflow:hidden; }
+.ck-editor-post-main { min-width:0; min-height:0; display:flex; flex-direction:column; overflow:hidden; }
+.ck-editor-post-editor-shell { background:var(--e-card); border:1px solid var(--e-border); border-radius:12px; overflow:hidden; display:flex; flex-direction:column; flex:1 1 auto; min-height:0; }
+.ck-editor-post-editor-shell .ck-editor { display:flex; flex-direction:column; flex:1 1 auto; min-height:0; }
+.ck-editor-post-editor-shell .ck-editor__main { flex:1 1 auto; min-height:0; overflow:hidden; }
+.ck-editor-post-editor-shell .ck-editor__main > .ck-editor__editable { min-height:0; height:100%; max-height:100%; overflow-y:auto; padding:28px 32px; font-family:'Noto Serif Bengali',serif; font-size:18px; line-height:1.85; color:var(--e-text); background:var(--e-card); }
+.ck-editor-post-editor-shell .ck-toolbar { border:0 !important; border-bottom:1px solid var(--e-border) !important; border-radius:0 !important; background:#f7f8fa !important; padding:6px 8px !important; flex:0 0 auto; }
+.ck-editor-post-editor-shell .ck-editor__editable.ck-focused { border:0 !important; box-shadow:inset 0 0 0 2px var(--e-ring) !important; }
+.ck-editor-post-editor-shell .ck-editor__nested-editable.ck-focused { box-shadow:none !important; }
+.ck-editor-post-editor-shell .ck-content h1,.ck-editor-post-editor-shell .ck-content h2,.ck-editor-post-editor-shell .ck-content h3 { line-height:1.25; }
+.ck-editor-post-form .ck-content p { margin:0 0 1em; }
+.ck-editor-post-form .ck-content h1,.ck-editor-post-form .ck-content h2,.ck-editor-post-form .ck-content h3,.ck-editor-post-form .ck-content h4 { margin:1.4em 0 .5em; }
+.ck-editor-post-form .ck-content ul,.ck-editor-post-form .ck-content ol { margin:0 0 1em; padding-left:1.6em; }
+.ck-editor-post-form .ck-content ul { list-style:disc; }
+.ck-editor-post-form .ck-content ol { list-style:decimal; }
+.ck-editor-post-form .ck-content li { margin:.3em 0; }
+.ck-editor-post-form .ck-content blockquote { margin:1em 0; padding:4px 0 4px 18px; border-left:3px solid var(--e-primary); color:var(--e-muted-foreground); }
+.ck-editor-post-form .ck.ck-button,.ck-editor-post-form a.ck.ck-button { border-radius:6px !important; transition:background .12s ease,color .12s ease; }
+.ck-editor-post-form .ck.ck-button:not(.ck-disabled):hover { background:#eef2f2 !important; }
+.ck-editor-post-form .ck.ck-button.ck-on { background:#f0fdfa !important; color:var(--e-primary-hover) !important; }
+.ck-editor-post-form .ck.ck-button.ck-on:hover { background:#ccfbf1 !important; }
+.ck-editor-post-form .ck.ck-toolbar .ck.ck-toolbar__separator { background:var(--e-border) !important; }
+.ck-editor-post-form .ck-content .ck-widget.ck-widget_selected,.ck-editor-post-form .ck-content .ck-widget.ck-widget_selected:hover { outline-color:var(--e-primary) !important; }
+.ck-editor-post-form .ck.ck-editor__editable .ck-widget__selection-handle { background:var(--e-primary) !important; }
+.ck-editor-post-statusbar { display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap; padding:10px 4px 0; color:var(--e-muted-foreground); font-size:11px; flex:0 0 auto; }
+.ck-editor-post-statusbar .ck-word-count { display:flex; gap:14px; align-items:center; margin:0; padding:0; border:0; background:transparent; color:var(--e-muted-foreground); font-size:11px; }
+.ck-editor-post-sidebar { display:grid; gap:16px; min-width:0; min-height:0; overflow-y:auto; padding-right:2px; }
+.ck-editor-post-card { padding:18px; border:1px solid var(--e-border); border-radius:12px; background:var(--e-card); box-shadow:0 1px 2px rgb(16 24 40 / .04); }
+.ck-editor-post-card-title { margin-bottom:12px; font-size:16px; font-weight:600; letter-spacing:-.01em; color:var(--e-text); }
+.ck-editor-post-card label { display:grid; gap:7px; margin:13px 0; color:var(--e-muted-foreground); font-size:14px; font-weight:500; }
+.ck-editor-post-card input,.ck-editor-post-card textarea,.ck-editor-post-card select { width:100%; min-width:0; border:1px solid var(--e-input); border-radius:8px; padding:10px 12px; background:var(--e-card); color:var(--e-text); font-family:inherit; font-size:15px; outline:none; transition:border-color .15s ease,box-shadow .15s ease; }
+.ck-editor-post-card textarea { min-height:96px; resize:vertical; }
+.ck-editor-post-card input:focus,.ck-editor-post-card textarea:focus,.ck-editor-post-card select:focus { border-color:var(--e-primary); box-shadow:0 0 0 3px var(--e-ring); }
+.ck-editor-post-card select[multiple] { min-height:150px; }
+.ck-editor-cover { display:block; width:100%; max-height:190px; object-fit:cover; border-radius:8px; margin:0 0 10px; }
+.ck-editor-check { display:flex !important; grid-template-columns:none !important; align-items:center; gap:8px; }
+.ck-editor-check input { width:auto !important; accent-color:var(--e-primary); }
+
+/* Action bar: normal document flow so it cannot cover the grid/sidebar content. */
+.ck-editor-post-actions { display:flex; align-items:center; justify-content:flex-start; gap:10px; padding:16px 20px; border-top:1px solid var(--e-border); background:#f7f8fa; flex:0 0 auto; box-sizing:border-box; position:relative; z-index:1; }
+.ck-editor-post-actions > div { display:flex; gap:10px; flex-wrap:wrap; }
+.ck-editor-post-actions button { height:40px; border-radius:8px; padding:0 16px; cursor:pointer; font-family:inherit; font-size:13px; font-weight:600; transition:background .15s ease,box-shadow .15s ease,transform .1s ease; }
+.ck-editor-post-actions button:active { transform:translateY(1px); }
+.ck-editor-post-actions .primary-action { background:var(--e-card); color:var(--e-text); border:1px solid var(--e-input); }
+.ck-editor-post-actions .primary-action:hover { background:var(--e-muted); }
+.ck-editor-post-actions .publish-action { background:var(--e-primary); color:#fff; border:1px solid var(--e-primary); box-shadow:0 1px 2px rgb(16 24 40 / .04); }
+.ck-editor-post-actions .publish-action:hover { background:var(--e-primary-hover); border-color:var(--e-primary-hover); }
+.ck-editor-post-actions .danger-action { background:var(--e-card); color:#e11d48; border:1px solid #f3cdcb; }
+.ck-editor-post-actions .danger-action:hover { background:#fef2f2; }
+
+@media (min-width:901px) {
+  .ck-editor-post-form:not(.ck-editor-post-form--fullscreen) { height:calc(100vh + 220px) !important; min-height:calc(100vh + 220px) !important; max-height:none !important; display:flex; flex-direction:column; overflow:visible; }
+  .ck-editor-post-form--fullscreen { display:flex; flex-direction:column; height:100vh; max-height:100vh; }
+  .ck-editor-post-grid { min-height:700px !important; }
+  .ck-editor-post-editor-shell { min-height:660px; }
+  .ck-editor-post-editor-shell .ck-editor__main > .ck-editor__editable { min-height:590px; resize:vertical; }
+}
+@media (max-width:1100px) { .ck-editor-post-grid { grid-template-columns:minmax(0,1fr) 300px; gap:16px; padding:16px; } }
+@media (max-width:900px) {
+  .ck-editor-post-form,.ck-editor-post-form--fullscreen { height:auto; max-height:none; overflow:visible; }
+  .ck-editor-post-heading { grid-template-columns:1fr; }
+  .ck-editor-post-grid { grid-template-columns:1fr; overflow:visible; }
+  .ck-editor-post-main { overflow:visible; }
+  .ck-editor-post-editor-shell { min-height:560px; }
+  .ck-editor-post-editor-shell .ck-editor__main { overflow:visible; }
+  .ck-editor-post-editor-shell .ck-editor__main > .ck-editor__editable { min-height:480px; height:auto; max-height:none; overflow-y:visible; resize:vertical; }
+  .ck-editor-post-sidebar { position:static; max-height:none; overflow:visible; }
+}
+@media (max-width:640px) {
+  .ck-editor-post-topbar { align-items:flex-start; flex-direction:column; }
+  .ck-editor-post-heading { padding:12px 10px 0; }
+  .ck-editor-post-heading label { font-size:13px; }
+  .ck-editor-post-heading input { font-size:15px; }
+  .ck-editor-post-grid { padding:10px; }
+  .ck-editor-post-editor-shell { min-height:420px; }
+  .ck-editor-post-editor-shell .ck-editor__main > .ck-editor__editable { min-height:420px; padding:18px; font-size:16px; }
+  .ck-editor-post-card label { font-size:13.5px; }
+  .ck-editor-post-card input,.ck-editor-post-card textarea,.ck-editor-post-card select { font-size:15px; }
+  .ck-editor-post-actions { padding:12px; }
+  .ck-editor-post-statusbar { padding-inline:2px; }
+}
+
+/* Slug field refinement: keep the field compact and aligned with the action buttons. */
+.ck-editor-post-heading .ck-editor-post-meta-slug {
+  height:40px !important;
+  min-height:40px !important;
+  padding:0 12px !important;
+  border-radius:8px !important;
+  font-size:14px !important;
+  line-height:1.2 !important;
+  font-weight:600 !important;
+}
+.ck-editor-post-heading .ck-editor-post-meta-slug::placeholder {
+  font-size:14px !important;
+  font-weight:500 !important;
+  color:#94a3b8 !important;
+  opacity:1 !important;
+}
+@media (max-width:640px) {
+  .ck-editor-post-heading .ck-editor-post-meta-slug {
+    height:40px !important;
+    min-height:40px !important;
+    font-size:14px !important;
+  }
+  .ck-editor-post-heading .ck-editor-post-meta-slug::placeholder { font-size:14px !important; }
+}
