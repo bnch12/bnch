@@ -1,4 +1,4 @@
-export const SITE = 'https://blog.suhanurrahman.com'
+export const SITE = 'https://new.banglachoti24.com'
 export const SITE_NAME = 'সোহানুর রহমান | Notes'
 export const AUTHOR_NAME = 'সোহানুর রহমান'
 export const AUTHOR_URL = 'https://suhanurrahman.com/'
